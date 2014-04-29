@@ -1,0 +1,14 @@
+#wrapper
+	.contact
+		%h3 Wanna get in touch? Tough! This form doesn't do anything!!
+		%input#txtName{:type=>"text", :placeholder=>"Full Name"}
+		%input#txtEmail(type="text" placeholder="Your Email")
+		%select#ddlType
+			%option -- Why are you bothering us? --
+			%option Just cuz
+			%option I want to report how bad your app is
+		%textarea#txtMessage{:rows=>4, :cols=>100, :placeholder=>"Give us details about why you are bothering us."}
+		%br
+		%button#btnContact Send
+
+= render :partial => "partials/footer"

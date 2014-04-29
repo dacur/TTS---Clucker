@@ -1,0 +1,101 @@
+$HeaderFont: "Pompiere", sans-serif;
+$MainFont: "Roboto", sans-serif;
+$Primary: #3071d1;
+$Shadow: #295ead;
+
+html { height: 100%; }
+body { 
+	font-family: $MainFont;  color: #fff; font-weight: 300;  margin: 0; padding: 0;
+	background: $Primary; /* Old browsers */
+	background: -moz-linear-gradient(top,  #3071d1 0%, #1851a7 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#3071d1), color-stop(100%,#1851a7)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  #3071d1 0%,#1851a7 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  #3071d1 0%,#1851a7 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  #3071d1 0%,#1851a7 100%); /* IE10+ */
+	background: linear-gradient(to bottom,  #3071d1 0%,#1851a7 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3071d1', endColorstr='#1851a7',GradientType=0 ); /* IE6-9 */ 
+}
+
+#header { 
+	position: fixed; z-index: 100;  top: 0px;  left: 0px; width: 100%; background: rgba(0,0,0, .2); 
+	a { color: #fff; }
+}
+
+
+#menu { 
+	float: right; margin-right: 40px; margin-top: 25px;
+	a { margin-left: 5px; }
+}
+
+#logo { 
+	float: left; font-family: $HeaderFont; padding: 10px 20px; text-transform:  uppercase; color: #fff; font-size: 40px; 
+	img { display: inline-block; margin-right: 10px; }
+	a { color: #fff; display: inline-block;  }
+	a:hover { text-decoration: none; }
+}
+
+#slogan { color: #fff; position: absolute; z-index:  5; left: 120px; font-size: 40px; margin-top: 150px; text-shadow: 1px 1px 5px #000; font-family:  $HeaderFont; }
+#btnStart { margin-left: 440px; font-family: $HeaderFont;  position: absolute; top: 150px; right: 120px; border: none; border-bottom: 3px solid #ff6600; border-radius: 6px; z-index: 500;  font-size: 28px; padding: 10px 20px; color: #fff; background: #ff9933;  }
+#btnShowLogin { font-size: 18px; padding: 5px 10px; }
+
+.homeContent { position: absolute; top: 300px; left: 120px; color: white; text-shadow: 1px 1px 5px #000; font-size: 24px; }
+#homeFooter { position: fixed; bottom: 20px;  padding: 0 !important; right: 20px;}
+
+h1, h2, h3 { font-family: $HeaderFont; }
+h3 { font-size: 24px; }
+img { border: none; }
+a { 
+	text-decoration: none; 
+	&:hover{ text-decoration: underline; }
+}
+p { margin: 0; margin-bottom: 15px; }
+
+.left { float: left; }
+.right { float: right; }
+
+#page { 
+	width: 100%; 
+	.content { padding: 20px;}
+}
+
+#footer { padding: 20px; text-align: right; clear: both; font-size: 14px; }
+
+video { position: relative;  top: 0; left: 0; width: 100%; height: 100%; z-index:  0;  border-bottom: 1px solid #333;}
+
+#wrapper { margin-left: 20px; color: #fff; max-width:  960px; margin: 0 auto;  margin-top: 100px; }
+#imgFail { border-radius: 6px; border-bottom: solid 3px #ccc; margin-left: 20px; }
+.about { width: 600px; }
+.contact, .team { width: 600px; margin: 0 auto;}
+
+input[type="text"], input[type="password"] { font-size: 18px; font-family: $MainFont; font-weight: 300; padding: 10px 15px; border-radius: 4px; border: solid 1px #2356a1; }
+input:focus { outline: none; box-shadow:inset 0 0 5px 1px #ff6633; }
+
+li { margin-bottom: 5px; list-style-type: square;}
+
+select {  display: block; width: 512px;  margin: 10px 0; font-size: 18px; font-family: $MainFont; font-weight: 300; padding: 10px 15px; border-radius: 4px; border: solid 1px #2356a1; }
+textarea { width: 482px; height: 100px; font-size: 18px; font-family: $MainFont; font-weight: 300; padding: 10px 15px; border-radius: 4px; border: solid 1px #2356a1; }
+button { 
+	cursor: pointer; font-family: $HeaderFont; font-size: 24px; background: #ff9933; border: none; border-bottom: 3px solid #ff6600; border-radius: 6px; padding: 10px 20px; color: #fff;
+	&:focus { outline: none; }
+}
+
+#overlay { display: none; height: 100%; width: 100%; background: rgba(0,0,0,.5); position: absolute; top: 0; left: 0; z-index: 600; }
+
+#dialogSignup, #dialogLogin {
+	position: absolute; top: -500px; display: none; z-index: 999; left: 50%;
+
+	.content { 
+		left: -50%; position: relative; border: solid 1px $Primary; background: $Primary; border-radius: 6px; width: 410px; margin: 0 auto; padding: 20px; border-bottom: solid 3px $Shadow;
+		p { margin-bottom: 25px; font-size: 18px; }
+		input[type="text"], input[type="password"] { width: 373px; display: block; margin-bottom: 10px; }
+		button { margin-left: 0px; }
+		#btnSignup, #btnLogin { margin-left: 243px; }
+	}
+}
+
+#error { display:none; position: fixed; z-index: 999; bottom: -50px; text-align: center; font-size: 18px; width: 100%;  border-top: 1px solid red; background: #990000; padding: 10px 15px; color: #fff; }
+#success { display:none; position: fixed; z-index: 999; bottom: -50px; text-align: center; font-size: 18px; width: 100%; border-top: 2px solid rgba(6,183,31,1); background: rgba(6,183,31,.8); padding: 10px 15px; color: #fff; }
+
+
+
+

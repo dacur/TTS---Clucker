@@ -1,0 +1,41 @@
+-# Look at me! I am a  comment!!
+
+%h2#slogan Clucking is awesome!
+%button{:id => "btnStart"} Get Started!
+
+%video(autoplay="autoplay" muted="muted" poster="https://www.paypalobjects.com/webstatic/mktg/wright/videos/home-signup.jpg" loop="loop")
+	%source(src="https://www.paypalobjects.com/webstatic/mktg/wright/videos/home-signup.mp4" type="video/mp4")
+	%source(src="https://www.paypalobjects.com/webstatic/mktg/wright/videos/home-signup.webm" type="video/webm")
+
+.content.homeContent
+	%p
+		Clucker is the
+		%span new way
+		to talk to your friends and let them know:
+
+	%ul
+		%li what you ate this morning
+		%li detailed stories of the last time your kids got sick
+		%li a place to put pictures of all your recent wounds (people LOVE those!)
+
+	#homeFooter
+		= render :partial => "partials/footer"
+
+#dialogSignup.dialog
+	.content
+		%p Hey, thanks for checking us out! Just fill out the goodies below and you will be clucking in no time.
+		%input#txtFirst(placeholder="First Name" type="text")
+		%input#txtLast(placeholder="Last Name" type="text")
+		%input#txtEmail(placeholder="Email" type="text")
+		%input#txtPassword(placeholder="Password" type="password")
+		%input#txtConfirm(placeholder="Confirm" type="password")
+		%button#btnSignup Go!
+		%button#btnSignupCancel Cancel
+
+#dialogLogin.dialog
+	.content
+		%p Let's do this.
+		%input#txtLoginEmail(placeholder="Email" type="text")
+		%input#txtLoginPassword(placeholder="Password" type="password")
+		%button#btnLogin Go!
+		%button#btnLoginCancel Cancel
