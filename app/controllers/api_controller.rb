@@ -1,4 +1,5 @@
 require 'json'
+require 'cluckdata.rb'
 
 class ApiController < ApplicationController
 	def savesignup
@@ -28,9 +29,29 @@ class ApiController < ApplicationController
 		u = User.find_by(email: email)
 
 		if (u != nil && u.password == password)
-			render json: u
+			user_id = u.id.to_s
+			render json: user_id.to_json
 		else
 			render json: nil
 		end
+	end
+
+	def savecluck
+		user_id = params[:userID]
+		text = params[:text].chomp
+
+		p user_id + ' | ' + text
+
+		u = User.find(user_id)
+
+		post_date = Time.now
+		p post_date
+		post_date.to_formatted_s(:short)         
+		p post_date
+		
+		cd = CluckData.new(nil, user_id, u.first + ' ' + u.last, text, post_date)
+		cd.save
+
+		render json: cd
 	end
 end

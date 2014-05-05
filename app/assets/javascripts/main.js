@@ -49,6 +49,28 @@ $(document).ready(function(){
 	$('#btnLogin').on('click', function(){
 		Login();
 	});
+
+	$('#txtCluck').keyup(function(e){
+		if (e.keyCode == 13)
+			SaveCluck();
+	});
+
+	$('#btnSaveCluck').on('click', function(){
+		SaveCluck();
+	});
+
+	$('#txtCluck').keypress(function(e){
+		var txt = $('#txtCluck').val();
+		var max = 142;
+
+		if (txt.length >= max) {
+			e.preventDefault();
+			return;
+		}
+
+		var remaining = max - txt.length - 1;
+		$('#cluckCounter').html(remaining + ' characters left!');
+	});
 });
 
 function HideDialog(){
@@ -78,7 +100,39 @@ function Login(){
 		if (data === null)
 			ShowError("Hmm...we couldn't log you in. Might want to try again.");
 		else
-			ShowSuccess('Hello! ' + data.first);
+			window.location = '/main/cluck?user=' + data;
+	});
+}
+
+function SaveCluck(){
+	var txt = $('#txtCluck').val();
+	var id = $('#hdnUserID').val();
+
+	if (id === '') {
+		ShowError('Ummm...who might you be?');
+		return;
+	}
+
+	if (txt === '') {
+		ShowError('An empty cluck is a bad cluck...');
+		return;
+	}
+
+	$.ajax({
+		url: '/api/savecluck',
+		type: 'POST',
+		data: { text: txt, userID: id }
+	}).done(function(newCluck){
+		var old = $('#showClucks').html();
+		var html = '<div class="cluck">';
+		html += '<div class="item text">' + newCluck.text + '</div>';
+		html += '<div class="item name">' + newCluck.user_name + '</div>';
+		html += '<div class="item date">' + moment(newCluck.post_date).format("MMM D, h:mm A ") + '</div>';
+		html += '</div>';
+
+		$('#showClucks').html(html + old);
+		$('#txtCluck').val('');
+		$('#cluckCounter').html('142 characters left!');
 	});
 }
 

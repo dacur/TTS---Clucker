@@ -1,0 +1,15 @@
+#wrapper
+	%h1 Welcome back #{@user.first}!
+	%input#hdnUserID(type="hidden" value="#{@user.id.to_s}")
+	#showClucks
+		- @clucks.each do |c|
+			.cluck
+				.item.text #{c.text}
+				.item.name #{c.user_name}
+				.item.date #{c.post_date.in_time_zone("Eastern Time (US & Canada)").strftime('%b %e, %l:%M %p')}	
+
+	#newCluck
+		%textarea#txtCluck
+		#newCluckWrapper
+			#cluckCounter 142 characters left!
+			%button#btnSaveCluck Cluck!
