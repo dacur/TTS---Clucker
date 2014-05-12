@@ -1,9 +1,12 @@
 source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
+ruby '2.1.1'
 gem 'rails', '4.0.4'
 gem 'mongoid', '~> 4.0.0.beta1', github: 'mongoid/mongoid'
 gem 'bson_ext'
+
+gem 'rails_12factor', group: :production
 
 gem 'haml'
 gem 'haml-rails'
