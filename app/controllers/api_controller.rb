@@ -8,16 +8,22 @@ class ApiController < ApplicationController
 		email = params[:email]
 		password = params[:password]
 
-		p first + ' | ' + last + ' | ' + email + ' | ' + password
+		p '1 : ' + first + ' | ' + last + ' | ' + email + ' | ' + password
 
-		u = User.new(first: first, last: last, email: email, password: password)
+		u = User.new(first: first, last: last, email: email, password: password) 
+
+		p '2'
 
 		if (u.valid?)
+			p '3'
 			u.save
 			render json: u
 		else
+			p 'INVALID'
 			render json: nil
 		end
+
+		p '4'
 	end
 
 	def login
