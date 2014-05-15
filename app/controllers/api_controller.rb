@@ -47,9 +47,14 @@ class ApiController < ApplicationController
 	end
 
 	def logout
+		# NON AJAX
+		# reset_session
+		# flash[:notice] = "Y'all come back now ya' here?"
+		# redirect_to :root
+
+		# AJAX
 		reset_session
-		flash[:notice] = "Y'all come back now ya' here?"
-		redirect_to :root
+		head :ok
 	end
 
 	def savecluck

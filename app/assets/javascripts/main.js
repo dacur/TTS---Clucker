@@ -1,4 +1,9 @@
 $(document).ready(function(){
+	// SHOWING MESSAGE FOR AJAX LOGOUT
+	var lo = getQueryVariable("loggedout");
+	if (lo == "true")
+		ShowSuccess("Thanks for logging out");
+
 	if ($('#hdnID').val() !== '') {
 		$('#btnShowLogin').hide();
 		$('#btnLogout').show();
@@ -79,6 +84,14 @@ $(document).ready(function(){
 
 		var remaining = max - txt.length - 1;
 		$('#cluckCounter').html(remaining + ' characters left!');
+	});
+
+	// USED ONLY FOR AJAX LOGOUT
+	$('#btnLogout').on('click', function(){
+		$.ajax({ url:'/api/logout'}).done(
+			function(){
+				window.location = '/?loggedout=true';
+			});
 	});
 });
 
@@ -224,4 +237,16 @@ function ValidateEmail(value) {
         return (true);
 
     return (false);
+}
+
+// USED ONLY TO SHOW A MESSAGE AFTER AJAX LOGOUT
+function getQueryVariable(variable)
+{
+   var query = window.location.search.substring(1);
+   var vars = query.split("&");
+   for (var i=0;i<vars.length;i++) {
+           var pair = vars[i].split("=");
+           if(pair[0] == variable){return pair[1];}
+   }
+   return(false);
 }

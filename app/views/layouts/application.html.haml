@@ -27,9 +27,13 @@
 				= link_to "Team", "/main/team"
 				= link_to "Contact", "/main/contact"
 				%button#btnShowLogin Login
-				
-				%form#logoutForm(action="/api/logout")
-					%button#btnLogout Logout
+
+				/ NON AJAX LOGOUT
+				/ %form#logoutForm(action="/api/logout")
+				/ 	%button#btnLogout Logout
+
+				/ AJAX LOGOUT
+				%button#btnLogout Logout
 
 		#page
 			= yield
