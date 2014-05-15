@@ -36,7 +36,8 @@ body {
 
 #slogan { color: #fff; position: absolute; z-index:  5; left: 120px; font-size: 40px; margin-top: 150px; text-shadow: 1px 1px 5px #000; font-family:  $HeaderFont; }
 #btnStart { margin-left: 440px; font-family: $HeaderFont;  position: absolute; top: 150px; right: 120px; border: none; border-bottom: 3px solid #ff6600; border-radius: 6px; z-index: 500;  font-size: 28px; padding: 10px 20px; color: #fff; background: #ff9933;  }
-#btnShowLogin { font-size: 18px; padding: 5px 10px; }
+#btnShowLogin, #btnLogout { font-size: 18px; padding: 5px 10px; display: inline-block; }
+#logoutForm { display: inline-block }
 
 .homeContent { position: absolute; top: 300px; left: 120px; color: white; text-shadow: 1px 1px 5px #000; font-size: 24px; }
 #homeFooter { position: fixed; bottom: 20px;  padding: 0 !important; right: 20px;}
@@ -95,6 +96,7 @@ button {
 
 #error { display:none; position: fixed; z-index: 999; bottom: -50px; text-align: center; font-size: 18px; width: 100%;  border-top: 1px solid red; background: #990000; padding: 10px 15px; color: #fff; }
 #success { display:none; position: fixed; z-index: 999; bottom: -50px; text-align: center; font-size: 18px; width: 100%; border-top: 2px solid rgba(6,183,31,1); background: rgba(6,183,31,.8); padding: 10px 15px; color: #fff; }
+.success { position: absolute; top: 0; z-index: 999; text-align: center; font-size: 18px; width: 100%; border-bottom: 2px solid rgba(6,183,31,1); background: rgba(6,183,31,.8); padding: 10px 0px; color: #fff; }
 
 #newCluck { float: right; width: 400px;}
 #showClucks { 

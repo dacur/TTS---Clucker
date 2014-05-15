@@ -14,6 +14,7 @@ class ApiController < ApplicationController
 
 		if (u.valid?)
 			u.save
+
 			session[:user_id] = u.id.to_s
 			session[:first] = u.first
 			session[:last] = u.last
@@ -43,6 +44,12 @@ class ApiController < ApplicationController
 		else
 			render json: nil
 		end
+	end
+
+	def logout
+		reset_session
+		flash[:notice] = "Y'all come back now ya' here?"
+		redirect_to :root
 	end
 
 	def savecluck

@@ -15,6 +15,9 @@
 		#overlay
 		#error
 		#success
+		- if flash[:notice]
+			.success #{flash[:notice]}
+
 		#header
 			#logo
 				= link_to(image_tag("chicken-256.png", :alt=>"Clucker!", :height=>"36", :width=>"36") + "Clucker", "/")
@@ -24,6 +27,9 @@
 				= link_to "Team", "/main/team"
 				= link_to "Contact", "/main/contact"
 				%button#btnShowLogin Login
+				
+				%form#logoutForm(action="/api/logout")
+					%button#btnLogout Logout
 
 		#page
 			= yield

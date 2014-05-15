@@ -8,6 +8,7 @@ Clucker::Application.routes.draw do
   post "api/login"
   post "api/savesignup"
   post "api/savecluck"
+  get "api/logout"
 
   root 'main#index'
 

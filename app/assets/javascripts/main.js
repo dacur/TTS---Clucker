@@ -1,6 +1,12 @@
 $(document).ready(function(){
-	if ($('#hdnID').val() !== '')
+	if ($('#hdnID').val() !== '') {
 		$('#btnShowLogin').hide();
+		$('#btnLogout').show();
+	}
+	else {
+		$('#btnLogout').hide();
+		$('#btnShowLogin').show();
+	}
 
 	$('#btnStart').on('click', function(){
 
