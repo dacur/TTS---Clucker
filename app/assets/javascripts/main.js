@@ -1,4 +1,7 @@
 $(document).ready(function(){
+	if ($('#hdnID').val() !== '')
+		$('#btnShowLogin').hide();
+
 	$('#btnStart').on('click', function(){
 
 		$('#overlay').fadeIn('fast', function(){
@@ -100,18 +103,12 @@ function Login(){
 		if (data === null)
 			ShowError("Hmm...we couldn't log you in. Might want to try again.");
 		else
-			window.location = '/main/cluck?user=' + data;
+			window.location = '/main/cluck';
 	});
 }
 
 function SaveCluck(){
 	var txt = $('#txtCluck').val();
-	var id = $('#hdnUserID').val();
-
-	if (id === '') {
-		ShowError('Ummm...who might you be?');
-		return;
-	}
 
 	if (txt === '') {
 		ShowError('An empty cluck is a bad cluck...');
@@ -121,7 +118,7 @@ function SaveCluck(){
 	$.ajax({
 		url: '/api/savecluck',
 		type: 'POST',
-		data: { text: txt, userID: id }
+		data: { text: txt }
 	}).done(function(newCluck){
 		var old = $('#showClucks').html();
 		var html = '<div class="cluck">';

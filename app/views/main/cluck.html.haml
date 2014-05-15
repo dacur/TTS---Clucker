@@ -1,6 +1,5 @@
 #wrapper
-	%h1 Welcome back #{@user.first}!
-	%input#hdnUserID(type="hidden" value="#{@user.id.to_s}")
+	%h1 Welcome back #{session[:first]}!
 	#showClucks
 		- @clucks.each do |c|
 			.cluck

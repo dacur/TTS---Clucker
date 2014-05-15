@@ -14,6 +14,10 @@ class ApiController < ApplicationController
 
 		if (u.valid?)
 			u.save
+			session[:user_id] = u.id.to_s
+			session[:first] = u.first
+			session[:last] = u.last
+
 			render json: u
 		else
 			render json: nil
@@ -30,6 +34,11 @@ class ApiController < ApplicationController
 
 		if (u != nil && u.password == password)
 			user_id = u.id.to_s
+			
+			session[:user_id] = user_id
+			session[:first] = u.first
+			session[:last] = u.last
+
 			render json: user_id.to_json
 		else
 			render json: nil
@@ -37,19 +46,16 @@ class ApiController < ApplicationController
 	end
 
 	def savecluck
-		user_id = params[:userID]
 		text = params[:text].chomp
 
-		p user_id + ' | ' + text
-
-		u = User.find(user_id)
+		user_id = session[:user_id]
+		first = session[:first]
+		last = session[:last]
 
 		post_date = Time.now
-		p post_date
 		post_date.to_formatted_s(:short)         
-		p post_date
 		
-		cd = CluckData.new(nil, user_id, u.first + ' ' + u.last, text, post_date)
+		cd = CluckData.new(nil, user_id, first + ' ' + last, text, post_date)
 		cd.save
 
 		render json: cd
